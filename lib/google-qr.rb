@@ -1,5 +1,6 @@
 require 'string'
 require 'uri'
+require 'cgi'
 
 class GoogleQR
   attr_accessor :data, :size, :use_https, :encoding, :error_correction, :margin, :html_options
@@ -70,7 +71,7 @@ class GoogleQR
   end
   
   def escape_string(string)
-    URI.encode(string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    CGI.escape(string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
   end
   
 end
