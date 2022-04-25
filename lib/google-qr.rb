@@ -71,7 +71,7 @@ class GoogleQR
   end
   
   def escape_string(string)
-    CGI.escape(string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    CGI.escape(string)
   end
   
 end
